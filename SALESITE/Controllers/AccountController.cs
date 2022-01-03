@@ -28,6 +28,20 @@ namespace SALESITE.Controllers
 
         }
         [HttpGet]
+        [Route("api/accounts/get/{username}")]
+        public Account Getuser(string username)
+        {
+            Account usernames = new Account_DAO().Selectbyusername(username);
+            return usernames;
+        }
+        [HttpGet]
+        [Route("api/accounts/take/{password}")]
+        public Account Getpass(string password)
+        {
+            Account passwords = new Account_DAO().Selectbypass(password);
+            return passwords;
+        }
+        [HttpGet]
         [Route("api/accounts/search/{keyword}")]
         public List<Account> Search(String keyword)
         {

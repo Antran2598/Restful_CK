@@ -36,6 +36,20 @@ namespace SALESITE.Models
             return account;
         }
 
+        public Account Selectbyusername(String username)
+        {
+            db.ObjectTrackingEnabled = false;
+            Account usernames = db.Accounts.SingleOrDefault(b => b.Username == username);
+            return usernames;
+        }
+
+        public Account Selectbypass(String password)
+        {
+            db.ObjectTrackingEnabled = false;
+            Account passwords = db.Accounts.SingleOrDefault(b => b.Password == password);
+            return passwords;
+        }
+
         public bool Insert(Account newaccount)
         {
             try
